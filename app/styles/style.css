@@ -1,0 +1,150 @@
+@import url("./reset.css");
+
+@font-face {
+  font-family: "Orbitron";
+  src: url("../public/fonts/Orbitron/Orbitron-VariableFont_wght.ttf");
+}
+
+:root {
+  --c-green: hsl(107, 100%, 70%);
+  --c-green-l: hsl(107, 100%, 75%);
+  --c-green-ls: hsl(107, 100%, 80%);
+  --c-white: hsl(12, 100%, 99%);
+  --c-orange: hsl(24, 85%, 65%);
+  --c-orange-d: hsl(24, 85%, 60%);
+  --c-orange-ds: hsl(24, 85%, 55%);
+  --c-black: hsl(0, 0%, 2%);
+  --c-black-l: hsl(0, 0%, 5%);
+  --c-black-ls: hsl(0, 0%, 7%);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 48px;
+  font-family: "Orbitron";
+  letter-spacing: 1px;
+}
+
+body {
+  background-color: var(--c-black-ls);
+  color: var(--c-white);
+}
+
+.presentation__header,
+.presentation__content .content__list,
+footer {
+  padding: 24px;
+}
+
+.presentation__header .header__title {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.header__title--highlight {
+  font-size: 1.25rem;
+  color: var(--c-orange);
+}
+
+.header__nav {
+  position: fixed;
+  display: grid;
+  top: calc(50vmin - 21rem / 2);
+  padding: 8px 36px 8px 8px;
+  width: 13.25rem;
+  height: 21rem;
+  gap: 4px;
+  grid-template-areas: "links toggler";
+  background-image: linear-gradient(
+    to bottom,
+    var(--c-black),
+    var(--c-black-ls)
+  );
+}
+
+.nav__links {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.header__nav:not(:focus-within) {
+  left: calc((13.25rem - 24px) * -1);
+}
+
+.header__nav .header__nav--link {
+  padding: 4px;
+  grid-area: links;
+}
+
+.header__nav .header__nav--toggler {
+  grid-area: toggler;
+  color: var(--c-orange-d);
+}
+
+.content__header {
+  text-align: center;
+  place-items: center;
+  display: grid;
+  height: 20rem;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../public/images/mnz-ToLMORRb97Q-unsplash.jpg");
+  background-attachment: fixed;
+}
+
+.content__header :first-child {
+  align-self: flex-end;
+}
+
+.content__header :last-child {
+  align-self: flex-start;
+}
+
+.content__list {
+  display: grid;
+  gap: 48px;
+}
+
+.list__part {
+  display: grid;
+  gap: 16px;
+}
+
+.list__part:nth-child(even) {
+  grid-template-areas: "heading img" "desc img";
+  text-align: right;
+}
+
+.list__part:nth-child(odd) {
+  grid-template-areas: "img heading" "img desc";
+}
+
+.list__part .part__title {
+  grid-area: heading;
+  align-self: flex-end;
+  color: var(--c-orange);
+  font-size: 1.5rem;
+}
+
+.list__part:nth-child(odd) .part__title::after {
+  content: " >>";
+}
+
+.list__part:nth-child(even) .part__title::before {
+  content: "<< ";
+}
+
+.list__part .part__desc {
+  grid-area: desc;
+  align-self: flex-start;
+}
+
+.list__part .part__img {
+  grid-area: img;
+  max-width: 400px;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+}
