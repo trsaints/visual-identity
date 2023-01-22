@@ -5,10 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Identidade visual: qual é seu estilo?" />
     <link rel="stylesheet" href="./app/styles/style.css" />
+    <script
+      src="https://kit.fontawesome.com/459cbd226f.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Identidade Visual</title>
   </head>
   <body class="presentation">
     <header class="presentation__header">
+      <picture class="header__banner">
+        <img
+          class="header__banner--img"
+          src="./app/public/images/roland-hechanova-nutRT2AD580-unsplash-removebg-preview.png"
+        />
+      </picture>
+
       <h1 class="header__title">
         Identidade Visual:
         <br />
@@ -26,33 +37,34 @@
 
           <a class="header__nav--link" href="#slide-3">Sofisticado</a>
 
-          <a class="header__nav--link" href="#slide-4">Casual/Esportivo </a>
+          <a class="header__nav--link" href="#slide-4">Casual</a>
 
           <a class="header__nav--link" href="#slide-5">Sexy</a>
 
           <a class="header__nav--link" href="#slide-6">Criativo</a>
 
           <a class="header__nav--link" href="#slide-7">Moderno</a>
-
-          <a class="header__nav--link" href="#">Voltar ao topo</a>
         </div>
 
         <button type="button" class="header__nav--toggler">
           <span class="sr-only">mostrar</span>
+          <i class="fa fa-angles-right"></i>
         </button>
       </nav>
     </header>
 
     <main class="presentation__content">
       <header class="content__header">
-        <h2 class="header__title">Introdução</h2>
+        <h2 class="header__title" id="slide-intro">Introdução</h2>
 
         <p class="header__desc">
           Cada pessoa é única em seu estilo, então resolvemos apresentar pra
           você os estilos universais. Quer conferir?
         </p>
 
-        <a class="header__link" href="#slide-1">Mostre-me</a>
+        <a class="header__link" href="#slide-1">
+          Mostre-me <i class="fa-solid fa-arrow-down-long"></i>
+        </a>
       </header>
 
       <ul class="content__list">
