@@ -21,7 +21,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 48px;
+  scroll-padding-top: 96px;
   font-family: "Orbitron";
   letter-spacing: 1px;
 }
@@ -33,17 +33,28 @@ body {
 }
 
 .presentation__header,
-.presentation__content .content__list,
+.presentation__content .content__header,
 footer {
   padding: 48px 24px;
 }
 
-.presentation__header {
+.presentation__content {
+  isolation: isolate;
   position: relative;
+}
+
+.presentation__header {
+  opacity: 0;
+  position: relative;
+  z-index: 1;
   isolation: isolate;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.presentation__header.visible {
+  animation: show-target .5s forwards;
 }
 
 .presentation__header .header__banner {
@@ -118,7 +129,7 @@ footer {
 
 .header__nav {
   position: fixed;
-  z-index: 2;
+  z-index: 10;
   display: grid;
   top: calc(50vh - 21rem / 2);
   padding: 8px;
@@ -131,6 +142,8 @@ footer {
 
 .nav__links {
   display: flex;
+  position: relative;
+  z-index: inherit;
   gap: 4px;
   flex-flow: column nowrap;
   justify-content: center;
@@ -168,18 +181,34 @@ footer {
   cursor: pointer;
 }
 
-.content__header {
+.presentation__content .content__header {
   text-align: center;
   place-items: center;
   display: grid;
-  height: 20rem;
+  padding-block: 96px;
+  gap: 16px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../public/images/mnz-ToLMORRb97Q-unsplash.jpg");
   background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
 }
 
 .content__header :first-child {
   align-self: flex-end;
+}
+
+.content__header .header__title {
+  color: var(--c-orange);
+  font-size: 2rem;
+}
+
+.content__header .header__title::before {
+  content: "<< ";
+}
+
+.content__header .header__title::after {
+  content: " >>";
 }
 
 .content__header .header__link {
@@ -197,13 +226,23 @@ footer {
 
 .content__list {
   display: grid;
-  gap: 48px;
+  padding: 96px 24px;
+  gap: 96px;
 }
 
 .list__part {
+  opacity: 0;
   display: grid;
   grid-template-areas: "img" "heading" "desc";
-  gap: 16px;
+  gap: 24px;
+}
+
+.list__part.visible {
+  animation: show-target .5s forwards;
+}
+
+.list__part .part__title::after {
+  content: " >>";
 }
 
 .list__part .part__title {
@@ -213,17 +252,28 @@ footer {
   font-size: 1.75rem;
 }
 
-.list__part:nth-child(odd) .part__title::after {
-  content: " >>";
-}
-
-.list__part:nth-child(even) .part__title::before {
-  content: "<< ";
-}
-
 .list__part .part__desc {
   grid-area: desc;
   align-self: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+.part__desc::before {
+  position: absolute;
+  z-index: -1;
+
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--c-black-l),
+    var(--c-black-l) 5px,
+    var(--c-black-ls) 5px,
+    var(--c-black-ls) 24px
+  );
 }
 
 .list__part .part__img {
@@ -242,17 +292,44 @@ footer {
 
   .list__part:nth-child(even) {
     grid-template-areas: "heading img" "desc img";
+    grid-template-columns: 2fr 1fr;
     text-align: right;
   }
 
   .list__part:nth-child(odd) {
     grid-template-areas: "img heading" "img desc";
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .list__part .part__title::after {
+    content: "";
+  }
+
+  .list__part:nth-child(odd) .part__title::after {
+    content: " >>";
+  }
+
+  .list__part:nth-child(even) .part__title::before {
+    content: "<< ";
+  }
+
+  .list__part:nth-child(even) .part__desc::before {
+    top: 30%;
+    right: 5%;
+  }
+
+  .list__part:nth-child(odd) .part__desc::before {
+    top: 30%;
+    left: 5%;
   }
 
   .presentation__header,
-  .presentation__content .content__list,
   footer {
     padding: 48px;
+  }
+
+  .content__list {
+    padding: 96px 48px;
   }
 
   .header__nav:not(:focus-within) {
@@ -261,8 +338,11 @@ footer {
 }
 
 @media screen and (min-width: 1140px) {
+  .presentation__header {
+    min-height: 100vh;
+  }
+
   .presentation__header,
-  .presentation__content .content__list,
   footer {
     padding: 48px 72px;
   }
@@ -276,11 +356,29 @@ footer {
     top: -71%;
   }
 
+  .content__header .header__desc {
+    max-width: 50vw;
+  }
+
   .header__nav:not(:focus-within) {
     left: calc((13.25rem - 36px) * -1);
   }
 
+  .content__list {
+    padding: 96px 72px;
+  }
+
   .part__img {
     max-width: 400px;
+  }
+}
+
+@keyframes show-target {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
