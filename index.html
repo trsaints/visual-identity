@@ -30,21 +30,37 @@
 
       <nav class="header__nav">
         <div class="nav__links">
-          <a class="header__nav--link" href="#slide-intro">Introdução</a>
+          <a class="header__nav--link" data-link="slide" href="#slide-0"
+            >Introdução</a
+          >
 
-          <a class="header__nav--link" href="#slide-1">Romântico</a>
+          <a class="header__nav--link" data-link="slide" href="#slide-1"
+            >Romântico</a
+          >
 
-          <a class="header__nav--link" href="#slide-2">Clássico</a>
+          <a class="header__nav--link" data-link="slide" href="#slide-2"
+            >Clássico</a
+          >
 
-          <a class="header__nav--link" href="#slide-3">Sofisticado</a>
+          <a class="header__nav--link" data-link="slide" href="#slide-3"
+            >Sofisticado</a
+          >
 
-          <a class="header__nav--link" href="#slide-4">Casual</a>
+          <a class="header__nav--link" data-link="slide" href="#slide-4"
+            >Casual</a
+          >
 
-          <a class="header__nav--link" href="#slide-5">Sexy</a>
+          <a class="header__nav--link" data-link="slide" href="#slide-5"
+            >Sexy</a
+          >
 
-          <a class="header__nav--link" href="#slide-6">Criativo</a>
+          <a class="header__nav--link" data-link="slide" href="#slide-6"
+            >Criativo</a
+          >
 
-          <a class="header__nav--link" href="#slide-7">Moderno</a>
+          <a class="header__nav--link" data-link="slide" href="#slide-7"
+            >Moderno</a
+          >
         </div>
 
         <button type="button" class="header__nav--toggler">
@@ -56,14 +72,17 @@
 
     <main class="presentation__content">
       <header class="content__header">
-        <h2 class="header__title" id="slide-intro">Introdução</h2>
+        <h2 class="header__title" id="slide-0">Introdução</h2>
 
         <p class="header__desc">
-          Cada pessoa é única em seu estilo, então resolvemos apresentar pra
-          você os estilos universais. Quer conferir?
+          Cada pessoa é única em seu estilo, mas influenciamos e somos
+          influenciados pelo ambiente em que vivemos. Logo, até nosso jeito de
+          se vestir provavelmente tem alguma origem ou conceito.
+          <br />
+          Quer conferir?
         </p>
 
-        <a class="header__link" href="#slide-1">
+        <a class="header__link" data-slide="start" href="#slide-1">
           Mostre-me <i class="fa-solid fa-arrow-down-long"></i>
         </a>
       </header>
@@ -73,9 +92,10 @@
           <h3 class="part__title">Romântico</h3>
 
           <p class="part__desc">
-            Este estilo é aquele que diz respeito a pessoas delicadas, doces.
-            Geralmente se utiliza de cores e imagens que beiram à infantilidade
-            (corações, flores, etc)
+            Neste estilo, vemos a predominância de roupas com tecidos delicados
+            e de tons pasteis, juntamente de estampas florais. Transmitem
+            sutileza e alegria, mas o exagero pode levar a uma imagem que beira
+            à infantilidade.
           </p>
 
           <img
@@ -91,8 +111,9 @@
 
           <p class="part__desc">
             O estilo clássico é aquele que é dito como tradicional, utilizado
-            por pessoas sérias. Cores neutras com estampas extremamente
-            discretas ou até mesmo a ausência delas.
+            geralmente para ocasiões mais sérias, transmitindo certo ar de
+            maturidade. Cores neutras com estampas extremamente discretas ou até
+            mesmo a ausência delas.
           </p>
 
           <img
@@ -108,8 +129,8 @@
 
           <p class="part__desc">
             O estilo sofisticado diz respeito a uma habilidade quase natural de
-            se parecer elegante. Peças combinadas com cores variadas e uma
-            postura exemplar e altiva dizem respeito a este estilo.
+            se parecer elegante. Peças de grife combinadas com cores variadas e
+            uma postura exemplar e altiva dizem respeito a este estilo.
           </p>
 
           <img
@@ -124,8 +145,8 @@
           <h3 class="part__title">Casual/Esportivo</h3>
 
           <p class="part__desc">
-            Estilo que preza à praticidade em vez do estilo em si. Consiste em
-            tecidos confortáveis com cores básicas e estampas atuais. É um
+            Estilo que preza por praticidade. Consiste em tecidos confortáveis e
+            que não marcam o corpo, com cores básicas e estampas atuais. É um
             estilo que, quando mal aplicado, pode gerar uma sensação de
             desleixo.
           </p>
@@ -142,11 +163,10 @@
           <h3 class="part__title">Sexy</h3>
 
           <p class="part__desc">
-            Com nome altamente sugestivo, foca em roupas curtas e no corpo do
-            usuário. Regatas que realçam os músculos, maquiagens pesadas e
-            roupas com decotes transmitem sensualidade e autoconfiança. Assim
-            como o casual, este também tem um risco: deve-se tomar cuidado com a
-            vulgaridade excessiva nesse estilo.
+            É focado em roupas mais curtas, marcando o corpo do usuário. Regatas
+            que realçam os músculos, maquiagens pesadas, decotes que transmitem
+            sensualidade e autoconfiança. Este também tem um risco: deve-se
+            tomar cuidado com a vulgaridade excessiva nesse estilo.
           </p>
 
           <img
@@ -161,10 +181,9 @@
           <h3 class="part__title">Criativo</h3>
 
           <p class="part__desc">
-            Ousadia e alegria! Cores vivas e marcantes em um mix combinado
-            passam energia e excentricidade. A extravagância é a chave, mas
-            também pode gerar uma visão ruim e totalmente desprendida da
-            realidade.
+            Cores vivas e marcantes combinadas com exagero passam energia e
+            excentricidade. A extravagância é a chave, mas também pode gerar uma
+            visão ruim e totalmente desprendida da realidade.
           </p>
 
           <img
@@ -179,9 +198,9 @@
           <h3 class="part__title">Moderno</h3>
 
           <p class="part__desc">
-            Preto unido a cores pastéis, peças de formato extremamente fora do
-            comum. A diferença é o foco central, mesmo com a discrição
-            necessária aqui.
+            Preto unido a cores pastéis, tecidos mais pesados em peças de
+            formato extremamente fora do comum. A diferença é o foco central,
+            mesmo com a discrição necessária aqui.
           </p>
 
           <img
