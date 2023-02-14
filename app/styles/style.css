@@ -17,13 +17,15 @@
   --c-black-l: hsl(0, 0%, 5%);
   --c-black-ls: hsl(0, 0%, 7%);
   --c-gray: hsl(0, 0%, 17%);
+  --c-gray-d: hsl(0, 0%, 13%);
+  --c-gray-ds: hsl(0, 0%, 10%);
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
   font-family: "Orbitron";
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 body {
@@ -56,6 +58,10 @@ footer {
 .presentation__header .header__banner {
   position: relative;
   z-index: 1;
+}
+
+.presentation__content .header__desc {
+  font-size: 1.25rem;
 }
 
 .header__banner::before {
@@ -119,7 +125,7 @@ footer {
 }
 
 .header__title--highlight {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: var(--c-orange);
 }
 
@@ -207,21 +213,26 @@ footer {
 }
 
 .content__header .header__link {
+  font-size: 1.125rem;
   align-self: flex-start;
   display: inline-block;
   padding: 12px 24px;
   background-image: linear-gradient(var(--c-black-ls), var(--c-black));
+  border: 4px solid var(--c-orange);
+  font-weight: 500;
   text-decoration: none;
   color: var(--c-orange);
 }
 .content__header .header__link:hover {
   background-image: linear-gradient(var(--c-orange), var(--c-orange-ds));
+  border-style: outset;
   transform: scale(1.05);
   color: var(--c-black);
 }
 
 .content__header .header__link:active {
   transform: scale(1);
+  border-style: inset;
 }
 
 .content__list {
@@ -277,13 +288,15 @@ footer {
   grid-area: heading;
   align-self: flex-end;
   color: var(--c-orange);
-  font-size: 1.75rem;
+  font-size: 2rem;
+  z-index: 1;
 }
 
 .list__part .part__desc {
   grid-area: desc;
   align-self: flex-start;
   position: relative;
+  font-size: 1.25rem;
   z-index: 1;
 }
 
@@ -304,8 +317,21 @@ footer {
   );
 }
 
+.part__desc::after {
+  position: absolute;
+  z-index: -2;
+
+  display: block;
+  content: "";
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  background-color: var(--c-gray-ds);
+  top: 0;
+}
+
 .list__part .part__img {
   grid-area: img;
+  z-index: 1;
 }
 
 footer {
@@ -344,6 +370,15 @@ footer {
   .list__part:nth-child(even) .part__desc::before {
     top: 30%;
     right: 5%;
+  }
+
+  .list__part:nth-child(even) .part__desc::after {
+    top: -30%;
+    right: -5%;
+  }
+  .list__part:nth-child(odd) .part__desc::after {
+    top: -30%;
+    left: -5%;
   }
 
   .list__part:nth-child(odd) .part__desc::before {
